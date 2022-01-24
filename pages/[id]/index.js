@@ -8,17 +8,49 @@ import {
   MDBBadge,
   MDBRow,
   MDBCol,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
 } from "mdb-react-ui-kit";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 const axios = require("axios").default;
 
 const EachHero = ({ heroes }) => {
+  const router = useRouter();
+  const heroId = router.query.id;
+  console.log("HeroId:", heroId);
+
+  const [basicModal, setBasicModal] = useState(false);
+
+  const toggleShow = () => setBasicModal(!basicModal);
+
+  // To delete a hero, api call method.
+  const deleteHero = async () => {
+    try {
+      const deleteHero = await axios(
+        `http://localhost:3000/api/hero/${heroId}`,
+        {
+          method: "DELETE",
+        }
+      );
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="container">
-        <h1 className="display-4">Identity of Hero</h1>
+        <h1 className="display-5">Identity of Hero:</h1>
         <div className="row justify-content-center">
           <MDBCard
             className="border border-4 m-4"
@@ -41,17 +73,47 @@ const EachHero = ({ heroes }) => {
                     <p>Real Name: {heroes.realName}</p>
                   </MDBCardText>
                   <MDBCardText>
-                    Description: This Superhero named "{heroes.superHero}" lives
-                    under identity of "{heroes.realName}"
+                    Description: This Superhero named &quot;{heroes.superHero}
+                    &quot; lives under identity of &quot;{heroes.realName}&quot;
                   </MDBCardText>
                   <MDBCardText>
                     <small className="text-muted">
                       Last updated 3 mins ago
                     </small>
                   </MDBCardText>
-                  <MDBBtn className="mx-2" color="danger">
+                  <MDBBtn onClick={toggleShow} className="mx-2" color="danger">
                     Delete
                   </MDBBtn>
+                  <MDBModal
+                    show={basicModal}
+                    setShow={setBasicModal}
+                    tabIndex="-1"
+                  >
+                    <MDBModalDialog>
+                      <MDBModalContent>
+                        <MDBModalHeader>
+                          <MDBModalTitle>Delete HERO?</MDBModalTitle>
+                          <MDBBtn
+                            className="btn-close"
+                            color="none"
+                            onClick={toggleShow}
+                          ></MDBBtn>
+                        </MDBModalHeader>
+                        <MDBModalBody>
+                          Are you sure to send this Hero out of world?
+                        </MDBModalBody>
+
+                        <MDBModalFooter>
+                          <MDBBtn color="secondary" onClick={toggleShow}>
+                            Close
+                          </MDBBtn>
+                          <MDBBtn color="danger" onClick={deleteHero}>
+                            Delete
+                          </MDBBtn>
+                        </MDBModalFooter>
+                      </MDBModalContent>
+                    </MDBModalDialog>
+                  </MDBModal>
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>

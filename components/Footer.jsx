@@ -13,7 +13,7 @@ function Footer() {
           <div className='text-center p-2' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
             © 2022 Developed by Sudhi <br/> using NextJs &nbsp;
             <a className='text-white' href='https://github.com/'>
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </a>
           </div>
         </MDBFooter>

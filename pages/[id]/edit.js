@@ -16,12 +16,13 @@ import { useState } from "react";
 
 const axios = require("axios").default;
 
-const AddNewHero = () => {
-  // const Router = useRouter();
+const EditHero = ({ heroes }) => {
+  const router = useRouter();
+  const heroId = router.query.id;
 
   const [form, setForm] = useState({
-    superHero: "",
-    realName: "",
+    superHero: heroes.superHero,
+    realName: heroes.realName,
   });
 
   const handleChange = (e) => {
@@ -34,8 +35,8 @@ const AddNewHero = () => {
   const handleForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios("http://localhost:3000/api/hero", {
-        method: "POST",
+      const res = await axios(`http://localhost:3000/api/hero/${heroId}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -49,9 +50,9 @@ const AddNewHero = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Add New Hero</h1>
-      <div className="row">
+    <div className="container mt-4">
+      <h1>Edit this Hero:</h1>
+      <div className="row align-items-center justify-content-center mt-4">
         <div className="col-6">
           <form onSubmit={handleForm}>
             <MDBInput
@@ -60,6 +61,7 @@ const AddNewHero = () => {
               label="Enter Super Hero"
               onChange={handleChange}
               name="superHero"
+              value={form.superHero}
             />
             <MDBInput
               type="text"
@@ -68,6 +70,7 @@ const AddNewHero = () => {
               label="Enter Real Name"
               onChange={handleChange}
               name="realName"
+              value={form.realName}
             />
             <MDBInput
               wrapperClass="mb-4"
@@ -77,8 +80,8 @@ const AddNewHero = () => {
               label="Description"
             />
 
-            <MDBBtn type="submit" className="mb-4" block>
-              Add Hero
+            <MDBBtn type="submit" className="mb-4" color="info" block>
+              <i className="fas fa-edit"></i> Edit Hero
             </MDBBtn>
           </form>
         </div>
@@ -87,4 +90,17 @@ const AddNewHero = () => {
   );
 };
 
-export default AddNewHero;
+export async function getServerSideProps({ params }) {
+  const id = params.id;
+  const response = await axios(`http://localhost:3000/api/hero/${id}`);
+  // console.log(response.data);
+
+  const hero = response.data.data;
+  console.log(hero);
+
+  return {
+    props: { heroes: hero },
+  };
+}
+
+export default EditHero;
