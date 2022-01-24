@@ -63,7 +63,9 @@ const index = ({ heroes }) => {
 };
 
 export async function getServerSideProps(context) {
-  const response = await axios("http://localhost:3000/api/hero");
+  const response = await axios(
+    "https://superhero-identity.netlify.app/api/hero"
+  );
   // console.log(response.data);
 
   const hero = response.data.data;
