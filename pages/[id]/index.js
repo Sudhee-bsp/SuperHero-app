@@ -5,7 +5,6 @@ import {
   MDBCardText,
   MDBCardImage,
   MDBBtn,
-  MDBBadge,
   MDBRow,
   MDBCol,
   MDBModal,
@@ -17,7 +16,6 @@ import {
   MDBModalFooter,
 } from "mdb-react-ui-kit";
 
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -36,7 +34,7 @@ const EachHero = ({ heroes }) => {
   const deleteHero = async () => {
     try {
       const deleteHero = await axios(
-        `http://localhost:3000/api/hero/${heroId}`,
+        `https://superhero-identity.netlify.app/api/hero/${heroId}`,
         {
           method: "DELETE",
         }
@@ -126,7 +124,9 @@ const EachHero = ({ heroes }) => {
 
 export async function getServerSideProps({ params }) {
   const id = params.id;
-  const response = await axios(`http://localhost:3000/api/hero/${id}`);
+  const response = await axios(
+    `https://superhero-identity.netlify.app/api/hero/${id}`
+  );
   // console.log(response.data);
 
   const hero = response.data.data;

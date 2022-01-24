@@ -1,16 +1,5 @@
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-  MDBBtn,
-  MDBBadge,
-  MDBInput,
-  MDBCheckbox,
-} from "mdb-react-ui-kit";
+import { MDBBtn, MDBInput } from "mdb-react-ui-kit";
 
-import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -34,13 +23,16 @@ const AddNewHero = () => {
   const handleForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios("http://localhost:3000/api/hero", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: JSON.stringify(form),
-      });
+      const res = await axios(
+        "https://superhero-identity.netlify.app/api/hero",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify(form),
+        }
+      );
       console.log("Data Added", res.data);
       Router.push("/");
     } catch (error) {

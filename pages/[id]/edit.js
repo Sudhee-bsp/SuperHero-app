@@ -1,16 +1,5 @@
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-  MDBBtn,
-  MDBBadge,
-  MDBInput,
-  MDBCheckbox,
-} from "mdb-react-ui-kit";
+import { MDBBtn, MDBInput } from "mdb-react-ui-kit";
 
-import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -35,13 +24,16 @@ const EditHero = ({ heroes }) => {
   const handleForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios(`http://localhost:3000/api/hero/${heroId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: JSON.stringify(form),
-      });
+      const res = await axios(
+        `https://superhero-identity.netlify.app/api/hero/${heroId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify(form),
+        }
+      );
       console.log("Data Added", res.data);
       Router.push("/");
     } catch (error) {
@@ -92,7 +84,9 @@ const EditHero = ({ heroes }) => {
 
 export async function getServerSideProps({ params }) {
   const id = params.id;
-  const response = await axios(`http://localhost:3000/api/hero/${id}`);
+  const response = await axios(
+    `https://superhero-identity.netlify.app/api/hero/${id}`
+  );
   // console.log(response.data);
 
   const hero = response.data.data;
