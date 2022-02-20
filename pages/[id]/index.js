@@ -48,7 +48,7 @@ const EachHero = ({ heroes }) => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container mt-3">
         <h1 className="display-5">Identity of Hero:</h1>
         <div className="row justify-content-center">
           <MDBCard
@@ -69,7 +69,7 @@ const EachHero = ({ heroes }) => {
                     {heroes.superHero}
                   </MDBCardTitle>
                   <MDBCardText>
-                    <p>Real Name: {heroes.realName}</p>
+                    Real Name: <strong>{heroes.realName}</strong>
                   </MDBCardText>
                   <MDBCardText>
                     Description: This Superhero named &quot;{heroes.superHero}
@@ -78,7 +78,10 @@ const EachHero = ({ heroes }) => {
                   <MDBCardText>
                     <small className="text-muted">
                       Last updated{" "}
-                      {moment(heroes.timeAdded, "YYYYMMDD").fromNow()}
+                      {moment
+                        .utc(heroes.updatedAt, "YYYY-MM-DD HH:mm Z")
+                        // .add(16, "hours")
+                        .fromNow()}
                     </small>
                   </MDBCardText>
                   <MDBBtn onClick={toggleShow} className="mx-2" color="danger">

@@ -25,7 +25,8 @@ const EditHero = ({ heroes }) => {
     e.preventDefault();
     try {
       const res = await axios(
-        `https://superhero-identity.netlify.app/api/hero/${heroId}`,
+        // `https://superhero-identity.netlify.app/api/hero/${heroId}`,
+        `http://localhost:3000/api/hero/${heroId}`,
         {
           method: "PUT",
           headers: {
@@ -34,7 +35,7 @@ const EditHero = ({ heroes }) => {
           data: JSON.stringify(form),
         }
       );
-      console.log("Data Added", res.data);
+      // console.log("Data Added", res.data);
       Router.push("/");
     } catch (error) {
       console.log(error);
