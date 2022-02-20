@@ -25,8 +25,8 @@ const EditHero = ({ heroes }) => {
     e.preventDefault();
     try {
       const res = await axios(
-        // `https://superhero-identity.netlify.app/api/hero/${heroId}`,
-        `http://localhost:3000/api/hero/${heroId}`,
+        `https://superhero-identity.netlify.app/api/hero/${heroId}`,
+        // `http://localhost:3000/api/hero/${heroId}`,
         {
           method: "PUT",
           headers: {

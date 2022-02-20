@@ -24,8 +24,8 @@ const AddNewHero = () => {
     e.preventDefault();
     try {
       const res = await axios(
-        // "https://superhero-identity.netlify.app/api/hero",
-        "http://localhost:3000/api/hero",
+        "https://superhero-identity.netlify.app/api/hero",
+        // "http://localhost:3000/api/hero",
         {
           method: "POST",
           headers: {
