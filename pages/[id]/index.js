@@ -74,6 +74,8 @@ const EachHero = ({ heroes }) => {
                   <MDBCardText>
                     Description: This Superhero named &quot;{heroes.superHero}
                     &quot; lives under identity of &quot;{heroes.realName}&quot;
+                    <br />
+                    {heroes.description}
                   </MDBCardText>
                   <MDBCardText>
                     <small className="text-muted">

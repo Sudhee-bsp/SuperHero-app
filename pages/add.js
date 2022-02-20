@@ -11,6 +11,7 @@ const AddNewHero = () => {
   const [form, setForm] = useState({
     superHero: "",
     realName: "",
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -68,6 +69,8 @@ const AddNewHero = () => {
               id="form4Example3"
               rows={4}
               label="Description"
+              onChange={handleChange}
+              name="description"
             />
 
             <MDBBtn type="submit" className="mb-4" block>

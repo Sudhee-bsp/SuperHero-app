@@ -12,6 +12,7 @@ const EditHero = ({ heroes }) => {
   const [form, setForm] = useState({
     superHero: heroes.superHero,
     realName: heroes.realName,
+    description: heroes.description,
   });
 
   const handleChange = (e) => {
@@ -71,6 +72,9 @@ const EditHero = ({ heroes }) => {
               id="form4Example3"
               rows={4}
               label="Description"
+              onChange={handleChange}
+              name="description"
+              value={form.description}
             />
 
             <MDBBtn type="submit" className="mb-4" color="info" block>

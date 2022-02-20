@@ -13,6 +13,10 @@ const HeroSchema = new mongoose.Schema(
       required: true,
       maxlength: [200, "Real name must be less than 200 characters"],
     },
+    description: {
+      type: String,
+      maxlength: [400, "Description can be upto 400 characters"],
+    },
     timeAdded: {
       type: Date,
       default: Date.now,
