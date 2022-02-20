@@ -24,39 +24,42 @@ const index = ({ heroes }) => {
           </MDBBadge>
         </MDBBtn>
 
-        {heroes.map((hero) => {
-          return (
-            <MDBCard
-              className="border border-2 m-4"
-              style={{ maxWidth: "18rem" }}
-              key={hero.id}
-            >
-              <MDBCardImage
-                src={`https://avatars.dicebear.com/api/avataaars/"${hero.superHero}.svg`}
-                position="top"
-                alt="..."
-              />
-              <MDBCardBody>
-                <MDBCardTitle>{hero.superHero}</MDBCardTitle>
-                <MDBCardText>Reveal Identity</MDBCardText>
-                <div className="row">
-                  <div className="col-6">
-                    <Link href={`/${hero._id}`}>
-                      <MDBBtn>View Hero</MDBBtn>
-                    </Link>
+        {heroes
+          .slice(0)
+          .reverse()
+          .map((hero) => {
+            return (
+              <MDBCard
+                className="border border-2 m-4"
+                style={{ maxWidth: "18rem" }}
+                key={hero._id}
+              >
+                <MDBCardImage
+                  src={`https://avatars.dicebear.com/api/avataaars/"${hero.superHero}.svg`}
+                  position="top"
+                  alt="..."
+                />
+                <MDBCardBody>
+                  <MDBCardTitle>{hero.superHero}</MDBCardTitle>
+                  <MDBCardText>Reveal Identity</MDBCardText>
+                  <div className="row">
+                    <div className="col-6">
+                      <Link href={`/${hero._id}`}>
+                        <MDBBtn>View Hero</MDBBtn>
+                      </Link>
+                    </div>
+                    <div className="col-6">
+                      <Link href={`/${hero._id}/edit`}>
+                        <MDBBtn>
+                          <i className="fas fa-pencil-alt"></i> Edit Hero
+                        </MDBBtn>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="col-6">
-                    <Link href={`/${hero._id}/edit`}>
-                      <MDBBtn>
-                        <i className="fas fa-pencil-alt"></i> Edit Hero
-                      </MDBBtn>
-                    </Link>
-                  </div>
-                </div>
-              </MDBCardBody>
-            </MDBCard>
-          );
-        })}
+                </MDBCardBody>
+              </MDBCard>
+            );
+          })}
       </div>
     </div>
   );
@@ -69,7 +72,7 @@ export async function getServerSideProps(context) {
   // console.log(response.data);
 
   const hero = response.data.data;
-  console.log(hero);
+  // console.log(hero);
 
   return {
     props: { heroes: hero },

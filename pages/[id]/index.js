@@ -18,6 +18,7 @@ import {
 
 import { useRouter } from "next/router";
 import { useState } from "react";
+import moment from "moment";
 
 const axios = require("axios").default;
 
@@ -57,7 +58,7 @@ const EachHero = ({ heroes }) => {
             <MDBRow className="g-0">
               <MDBCol md="4">
                 <MDBCardImage
-                  src={`https://avatars.dicebear.com/api/avataaars/"${heroes.realName}.svg`}
+                  src={`https://avatars.dicebear.com/api/avataaars/"${heroes.superHero}.svg`}
                   alt="..."
                   fluid
                 />
@@ -76,7 +77,8 @@ const EachHero = ({ heroes }) => {
                   </MDBCardText>
                   <MDBCardText>
                     <small className="text-muted">
-                      Last updated 3 mins ago
+                      Last updated{" "}
+                      {moment(heroes.timeAdded, "YYYYMMDD").fromNow()}
                     </small>
                   </MDBCardText>
                   <MDBBtn onClick={toggleShow} className="mx-2" color="danger">

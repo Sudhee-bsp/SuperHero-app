@@ -25,6 +25,7 @@ const AddNewHero = () => {
     try {
       const res = await axios(
         "https://superhero-identity.netlify.app/api/hero",
+        // "http://localhost:3000/api/hero",
         {
           method: "POST",
           headers: {
@@ -33,7 +34,7 @@ const AddNewHero = () => {
           data: JSON.stringify(form),
         }
       );
-      console.log("Data Added", res.data);
+      // console.log("Data Added", res.data);
       Router.push("/");
     } catch (error) {
       console.log(error);

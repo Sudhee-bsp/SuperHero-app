@@ -12,6 +12,10 @@ const HeroSchema = new mongoose.Schema({
     required: true,
     maxlength: [200, "Real name must be less than 200 characters"],
   },
+  timeAdded: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.models.Hero || mongoose.model("Hero", HeroSchema);
