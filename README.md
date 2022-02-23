@@ -23,7 +23,11 @@
 
 ### Demo:
 
+<div style="border: 5px solid black; border-radius: 8px">
+
 ![demogif](./public/snapshot.gif)
+
+</div>
 
 ### About the App
 
