@@ -1,6 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## SuperHero Identity Manager
 
-## Getting Started
+View the App here: https://superhero-identity.netlify.app
+
+### Features:
+
+    * Create a new SuperHero Identity
+    * View (Reveal) all SuperHero Identities
+    * Update a SuperHero Identity
+    * Delete a SuperHero Identity
+
+### Demo:
+
+![demogif](./public/snapshot.gif)
+
+### About the App
+
+WORLD is full of 🤜superheroes🤛 (atleast in MCU & DC universe) perhaps in other worlds too. You may also know few of them but you don't know their identity. This app is designed to help you to manage your superheroes.
+
+The project is a simple CRUD app for a SuperHero Identity management developed using:-
+
+- Next.js
+- MongoDB
+- MDB-React-UI.
+
+### Getting Started:
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.
 
 First, run the development server:
 
@@ -14,11 +39,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### API Routes in NextJs:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+> Any file inside the folder `pages/api` is mapped to `/api/*` and will be treated as an API endpoint instead of a page.
 
-## Learn More
+- API routes can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+
+- Routes created for this app are:
+  - http://localhost:3000/api/hero
+  - http://localhost:3000/api/hero/:id
+  * POST, PUT, DELETE operations are supported.
+
+### Learn More:
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -26,9 +58,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
