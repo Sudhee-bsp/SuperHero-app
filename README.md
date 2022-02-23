@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Code-Developed%20with%20💙%20by%20Sudhi-important?style=social&logo=appveyor)
+![](./images/codeby.svg)
 
-![](https://img.shields.io/badge/Built-Using%20NextJs-blueviolet) &emsp; ![](https://img.shields.io/badge/Database-MongoDB-brightgreen) &emsp; ![](https://img.shields.io/badge/Style-MDB%20React-9cf?style=plastic&logo=appveyor)
+![](./images/builtwith.svg) &emsp; ![](./images/databasewith.svg) &emsp; ![](./images/stylewith.svg)
 
 </div>
 
@@ -50,7 +50,7 @@ npm run dev
 yarn dev
 ```
 
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the app running.
 
 - You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
