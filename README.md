@@ -1,5 +1,15 @@
 ## SuperHero Identity Manager
 
+<div align="center">
+
+![](https://img.shields.io/badge/Code-Developed%20with%20💙%20by%20Sudhi-important?style=social&logo=appveyor)
+
+![](https://img.shields.io/badge/Built-Using%20NextJs-blueviolet) &emsp; ![](https://img.shields.io/badge/Database-MongoDB-brightgreen) &emsp; ![](https://img.shields.io/badge/Style-MDB%20React-9cf?style=plastic&logo=appveyor)
+
+</div>
+
+<hr/>
+
 #### View the App here: https://superhero-identity.netlify.app
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/15201d49-b0ad-4c8c-80c6-72bdda22d950/deploy-status)](https://app.netlify.com/sites/superhero-identity/deploys)
