@@ -1,6 +1,8 @@
 ## SuperHero Identity Manager
 
-View the App here: https://superhero-identity.netlify.app
+#### View the App here: https://superhero-identity.netlify.app
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/15201d49-b0ad-4c8c-80c6-72bdda22d950/deploy-status)](https://app.netlify.com/sites/superhero-identity/deploys)
 
 ### Features:
 
@@ -27,7 +29,10 @@ The project is a simple CRUD app for a SuperHero Identity management developed u
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.
 
-First, run the development server:
+- Install the project dependencies using `npm install`
+- Get your MongoDB_URL and insert it in `.env` file as shown in `.env.example`
+
+- Then, Run the development server:
 
 ```bash
 npm run dev
@@ -35,9 +40,11 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+- All stylesheet links and scripts can be placed in the `pages/_document.js` file.
 
 ### API Routes in NextJs:
 
@@ -57,4 +64,6 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This is a beginner friendly project for learning Next.js. Feel free to fork and make your own project.
+<br>
+You can check out [this GitHub repository anytime](https://github.com/Sudhee-bsp/SuperHero-app/) - your feedback and contributions are welcome!
