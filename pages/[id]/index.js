@@ -59,7 +59,7 @@ const EachHero = ({ heroes }) => {
               <MDBCol md="4">
                 <MDBCardImage
                   src={`https://api.dicebear.com/8.x/avataaars/svg?seed=${heroes.superHero}`}
-                  alt="..."
+                  alt="hero"
                   fluid
                 />
               </MDBCol>
