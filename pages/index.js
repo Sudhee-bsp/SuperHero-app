@@ -35,7 +35,7 @@ const index = ({ heroes }) => {
                 key={hero._id}
               >
                 <MDBCardImage
-                  src={`https://avatars.dicebear.com/api/avataaars/"${hero.superHero}.svg`}
+                  src={`https://api.dicebear.com/8.x/avataaars/svg?seed=${hero.superHero}.svg`}
                   position="top"
                   alt="..."
                 />
